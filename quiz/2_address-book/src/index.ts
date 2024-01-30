@@ -54,6 +54,12 @@ function fetchContacts(): Promise<Contact[]> {
   });
 }
 
+enum PhoneType {
+  Home = 'home',
+  Office = 'office',
+  Studio = 'studio',
+}
+
 // main
 class AddressBook {
   // TODO: 아래 변수의 타입을 지정해보세요.
@@ -78,7 +84,7 @@ class AddressBook {
     return this.contacts.filter(contact => contact.address === address);
   }
 
-  findContactByPhone(phoneNumber: number, phoneType: string): Contact[] {
+  findContactByPhone(phoneNumber: number, phoneType: PhoneType): Contact[] {
     return this.contacts.filter(
       contact => contact.phones[phoneType].num === phoneNumber
     );
